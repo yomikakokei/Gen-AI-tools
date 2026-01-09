@@ -22,18 +22,18 @@ Ubuntu環境で動作するリアルタイム音声変換ツールです。
 
 ### 3.1 システム依存パッケージのインストール
 ```bash
-udo apt update
+sudo apt update
 sudo apt install portaudio19-dev python3-pyaudio
-
 ```
 ### 3.2 Pythonパッケージのインストール
-Bash
+```bash
 pip install pyaudio vosk azure-cognitiveservices-speech
-
+```
 ### 3.3 Voskモデルのダウンロードと配置
-Bash
+```bash
 wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
 unzip vosk-model-small-en-us-0.15.zip
+```
 ※展開されたフォルダ「vosk-model-small-en-us-0.15」を voice_converter.py と同じディレクトリに配置してください
 
 ### 3.4 Azure Speechリソースの作成
@@ -42,15 +42,17 @@ Azure Portal で「Cognitive Services」→「Speech」リソースを作成
 作成後、キー（Key 1 または Key 2） と リージョン（例: japaneast, eastus） をメモ
 
 ### 3.5 環境変数の設定
-Bash
+```bash
 export AZURE_SPEECH_KEY="your-speech-key-here"
 export AZURE_REGION="your-region-here"   # 例: japaneast
+```
 永続的に設定したい場合は ~/.bashrc または ~/.profile に上記を追記し、source ~/.bashrc で反映してください。
 
 
 ## 4. 実行方法
-Bash
+```bash
 python3 voice_converter.py
+```
 起動後、表示される1～8の番号から希望の声を入力してください。
 マイクに向かって話すと、選択した声でほぼリアルタイムに再生されます。
 終了は Ctrl + C。
