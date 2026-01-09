@@ -1,0 +1,101 @@
+{\rtf1\ansi\ansicpg932\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Gen-AI-tools\
+Tiny gen ai tools\
+\
+# Real-time Voice Converter (Vosk + Azure Neural TTS)\
+\
+Ubuntu\uc0\u29872 \u22659 \u12391 \u21205 \u20316 \u12377 \u12427 \u12522 \u12450 \u12523 \u12479 \u12452 \u12512 \u38899 \u22768 \u22793 \u25563 \u12484 \u12540 \u12523 \u12391 \u12377 \u12290   \
+\uc0\u12510 \u12452 \u12463 \u12363 \u12425 \u20837 \u21147 \u12375 \u12383 \u38899 \u22768 \u12434 \u12458 \u12501 \u12521 \u12452 \u12531 \u12391 \u35469 \u35672 \u65288 Vosk\u65289 \u12375 \u12289 Azure Cognitive Services\u12398 Neural TTS\u12391 \u36984 \u25246 \u12375 \u12383 \u12450 \u12463 \u12475 \u12531 \u12488 \u12539 \u22768 \u36074 \u12395 \u22793 \u25563 \u12375 \u12390 \u21363 \u24231 \u12395 \u20877 \u29983 \u12375 \u12414 \u12377 \u12290   \
+\uc0\u38899 \u22768 \u35469 \u35672 \u12363 \u12425 \u21512 \u25104 \u12539 \u20877 \u29983 \u12414 \u12391 \u12398 \u36933 \u24310 \u12434 \u26368 \u23567 \u38480 \u12395 \u25233 \u12360 \u12383 \u20302 \u12524 \u12452 \u12486 \u12531 \u12471 \u35373 \u35336 \u12391 \u12377 \u12290 \
+\
+## 1. \uc0\u27231 \u33021 \
+- \uc0\u12458 \u12501 \u12521 \u12452 \u12531 \u38899 \u22768 \u35469 \u35672 \u65288 Vosk small \u33521 \u35486 \u12514 \u12487 \u12523 \u65289 \
+- Azure\uc0\u12398 \u39640 \u21697 \u36074 Neural\u12508 \u12452 \u12473 \u12395 \u12424 \u12427 \u12522 \u12450 \u12523 \u12479 \u12452 \u12512 \u38899 \u22768 \u21512 \u25104 \
+- \uc0\u12450 \u12513 \u12522 \u12459 \u12539 \u12452 \u12462 \u12522 \u12473 \u12539 \u12452 \u12531 \u12489 \u12539 \u12458 \u12540 \u12473 \u12488 \u12521 \u12522 \u12450 \u33521 \u35486 \u12398 \u30007 \u22899 \u35336 8\u31278 \u39006 \u12398 \u22768 \u12434 \u36984 \u25246 \u21487 \u33021 \
+- \uc0\u12510 \u12452 \u12463 \u20837 \u21147  \u8594  \u12486 \u12461 \u12473 \u12488 \u35469 \u35672  \u8594  \u25351 \u23450 \u22768 \u12391 \u20877 \u29983  \u12398 \u12501 \u12523 \u12522 \u12450 \u12523 \u12479 \u12452 \u12512 \u20966 \u29702 \
+\
+## 2. \uc0\u24517 \u35201 \u29872 \u22659 \
+- Ubuntu 20.04 / 22.04 / 24.04\uc0\u65288 \u25512 \u22888 \u65289 \
+- Python 3.8 \uc0\u20197 \u19978 \
+- \uc0\u12510 \u12452 \u12463 \u12392 \u12473 \u12500 \u12540 \u12459 \u12540 \u65288 \u12504 \u12483 \u12489 \u12475 \u12483 \u12488 \u25512 \u22888 \u65289 \
+\
+## 3. \uc0\u12452 \u12531 \u12473 \u12488 \u12540 \u12523 \u25163 \u38918 \
+\
+### 3.1 \uc0\u12471 \u12473 \u12486 \u12512 \u20381 \u23384 \u12497 \u12483 \u12465 \u12540 \u12472 \u12398 \u12452 \u12531 \u12473 \u12488 \u12540 \u12523 \
+```bash\
+sudo apt update\
+sudo apt install portaudio19-dev python3-pyaudio\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ### 3.2 Python\uc0\u12497 \u12483 \u12465 \u12540 \u12472 \u12398 \u12452 \u12531 \u12473 \u12488 \u12540 \u12523 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Bashpip install pyaudio vosk azure-cognitiveservices-speech\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ### 3.3 Vosk\uc0\u12514 \u12487 \u12523 \u12398 \u12480 \u12454 \u12531 \u12525 \u12540 \u12489 \u12392 \u37197 \u32622 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Bashwget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip\
+unzip vosk-model-small-en-us-0.15.zip\
+# \uc0\u23637 \u38283 \u12373 \u12428 \u12383 \u12501 \u12457 \u12523 \u12480 \u12300 vosk-model-small-en-us-0.15\u12301 \u12434 \
+# voice_converter.py \uc0\u12392 \u21516 \u12376 \u12487 \u12451 \u12524 \u12463 \u12488 \u12522 \u12395 \u37197 \u32622 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ### 3.4 Azure Speech\uc0\u12522 \u12477 \u12540 \u12473 \u12398 \u20316 \u25104 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Azure Portal \uc0\u12391 \u12300 Cognitive Services\u12301 \u8594 \u12300 Speech\u12301 \u12522 \u12477 \u12540 \u12473 \u12434 \u20316 \u25104 \
+\uc0\u20316 \u25104 \u24460 \u12289 \u12461 \u12540 \u65288 Key 1 \u12414 \u12383 \u12399  Key 2\u65289  \u12392  \u12522 \u12540 \u12472 \u12519 \u12531 \u65288 \u20363 : japaneast, eastus\u65289  \u12434 \u12513 \u12514 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ### 3.5 \uc0\u29872 \u22659 \u22793 \u25968 \u12398 \u35373 \u23450 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Bashexport AZURE_SPEECH_KEY="your-speech-key-here"\
+export AZURE_REGION="your-region-here"   # \uc0\u20363 : japaneast\
+\uc0\u27704 \u32154 \u30340 \u12395 \u35373 \u23450 \u12375 \u12383 \u12356 \u22580 \u21512 \u12399  ~/.bashrc \u12414 \u12383 \u12399  ~/.profile \u12395 \u19978 \u35352 \u12434 \u36861 \u35352 \u12375 \u12289 source ~/.bashrc \u12391 \u21453 \u26144 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ## 4. \uc0\u23455 \u34892 \u26041 \u27861 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Bashpython3 voice_converter.py\
+\uc0\u36215 \u21205 \u24460 \u12289 \u34920 \u31034 \u12373 \u12428 \u12427 1\u12316 8\u12398 \u30058 \u21495 \u12363 \u12425 \u24076 \u26395 \u12398 \u22768 \u12434 \u20837 \u21147 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+\uc0\u12510 \u12452 \u12463 \u12395 \u21521 \u12363 \u12387 \u12390 \u35441 \u12377 \u12392 \u12289 \u36984 \u25246 \u12375 \u12383 \u22768 \u12391 \u12411 \u12412 \u12522 \u12450 \u12523 \u12479 \u12452 \u12512 \u12395 \u20877 \u29983 \u12373 \u12428 \u12414 \u12377 \u12290 \
+\uc0\u32066 \u20102 \u12399  Ctrl + C\u12290 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ### ## 5. \uc0\u12488 \u12521 \u12502 \u12523 \u12471 \u12517 \u12540 \u12486 \u12451 \u12531 \u12464 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\uc0\u12510 \u12452 \u12463 \u12364 \u35469 \u35672 \u12373 \u12428 \u12394 \u12356 arecord -l \u12391 \u12510 \u12452 \u12463 \u12487 \u12496 \u12452 \u12473 \u12434 \u30906 \u35469 \u12290 alsamixer \u12420  pavucontrol \u12391 \u20837 \u21147 \u38899 \u37327 \u12392 \u12461 \u12515 \u12503 \u12481 \u12515 \u12487 \u12496 \u12452 \u12473 \u12434 \u35519 \u25972 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+\uc0\u38899 \u12364 \u20986 \u12394 \u12356 \
+\uc0\u12473 \u12500 \u12540 \u12459 \u12540 \u12364 \u27491 \u12375 \u12367 \u36984 \u25246 \u12373 \u12428 \u12390 \u12356 \u12427 \u12363 \u30906 \u35469 \u65288 pavucontrol \u12364 \u20415 \u21033 \u65289 \u12290 \u12504 \u12483 \u12489 \u12475 \u12483 \u12488 \u20351 \u29992 \u26178 \u12399 \u20986 \u21147 \u12487 \u12496 \u12452 \u12473 \u12434 \u20999 \u12426 \u26367 \u12360 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+Vosk\uc0\u12514 \u12487 \u12523 \u12364 \u35211 \u12388 \u12363 \u12425 \u12394 \u12356 \u12456 \u12521 \u12540 vosk-model-small-en-us-0.15 \u12501 \u12457 \u12523 \u12480 \u12364 \u12473 \u12463 \u12522 \u12503 \u12488 \u12392 \u21516 \u12376 \u12487 \u12451 \u12524 \u12463 \u12488 \u12522 \u12395 \u12354 \u12427 \u12363 \u30906 \u35469 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+Azure\uc0\u35469 \u35388 \u12456 \u12521 \u12540 \
+\uc0\u29872 \u22659 \u22793 \u25968 \u12364 \u27491 \u12375 \u12367 \u35373 \u23450 \u12373 \u12428 \u12390 \u12356 \u12427 \u12363  echo $AZURE_SPEECH_KEY \u12391 \u30906 \u35469 \u12375 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+\uc0\u36933 \u24310 \u12364 \u22823 \u12365 \u12356 \u22580 \u21512 \
+\uc0\u12493 \u12483 \u12488 \u12527 \u12540 \u12463 \u29872 \u22659 \u12420 Azure\u12522 \u12540 \u12472 \u12519 \u12531 \u12392 \u12398 \u36317 \u38626 \u12364 \u24433 \u38911 \u12375 \u12414 \u12377 \u12290 \u26085 \u26412 \u22312 \u20303 \u12394 \u12425  japaneast \u12434 \u36984 \u25246 \u12377 \u12427 \u12392 \u25913 \u21892 \u12375 \u12414 \u12377 \u12290 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ## 6. \uc0\u27880 \u24847 \u20107 \u38917 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Azure Speech\uc0\u12469 \u12540 \u12499 \u12473 \u12399 \u24467 \u37327 \u35506 \u37329 \u21046 \u12391 \u12377 \u12290 \u12486 \u12473 \u12488 \u32066 \u20102 \u24460 \u12399 \u12522 \u12477 \u12540 \u12473 \u12434 \u20572 \u27490 \u12539 \u21066 \u38500 \u12375 \u12390 \u35506 \u37329 \u12434 \u25233 \u12360 \u12390 \u12367 \u12384 \u12373 \u12356 \u12290 \
+Vosk\uc0\u12398 small\u12514 \u12487 \u12523 \u12399 \u36605 \u37327 \u12391 \u12377 \u12364 \u35469 \u35672 \u31934 \u24230 \u12399 large\u12514 \u12487 \u12523 \u12395 \u21155 \u12426 \u12414 \u12377 \u12290 \u24517 \u35201 \u12395 \u24540 \u12376 \u12390 large\u12514 \u12487 \u12523 \u12395 \u32622 \u12365 \u25563 \u12360 \u21487 \u33021 \u12391 \u12377 \u12290 \
+\uc0\u26412 \u12484 \u12540 \u12523 \u12399 \u33521 \u35486 \u38899 \u22768 \u35469 \u35672 \u12539 \u21512 \u25104 \u23554 \u29992 \u12391 \u12377 \u65288 \u12514 \u12487 \u12523 \u20381 \u23384 \u65289 \u12290 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ## 7. \uc0\u12521 \u12452 \u12475 \u12531 \u12473 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 MIT License\
+Copyright (c) 2026\
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\
+\
+\uc0\u27005 \u12375 \u12435 \u12391 \u12372 \u21033 \u29992 \u12367 \u12384 \u12373 \u12356 \u65281 \
+}
