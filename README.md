@@ -21,7 +21,7 @@ Ubuntu環境で動作するリアルタイム音声変換ツールです。
 ## 3. インストール手順
 
 ### 3.1 システム依存パッケージのインストール
-Bash
+```bash
 udo apt update
 sudo apt install portaudio19-dev python3-pyaudio
 
@@ -33,8 +33,7 @@ pip install pyaudio vosk azure-cognitiveservices-speech
 Bash
 wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
 unzip vosk-model-small-en-us-0.15.zip
-# 展開されたフォルダ「vosk-model-small-en-us-0.15」を
-# voice_converter.py と同じディレクトリに配置してください
+※展開されたフォルダ「vosk-model-small-en-us-0.15」を voice_converter.py と同じディレクトリに配置してください
 
 ### 3.4 Azure Speechリソースの作成
 
