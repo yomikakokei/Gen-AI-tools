@@ -35,18 +35,19 @@ mv vosk-model-small-en-us-0.15 vosk-model-small-en-us-0.15
 Azure Portalで「Cognitive Services」→「Speech」リソースを作成
 キー（Key）とリージョン（例: japaneast）を取得
 
-5. 環境変数の設定
+##　環境変数の設定
 Bashexport AZURE_SPEECH_KEY="your-speech-key-here"
 export AZURE_REGION="your-region-here"  # 例: japaneast, eastus
 ※永続的に設定したい場合は ~/.bashrc や ~/.profile に追記してください。
-実行方法
+
+##　実行方法
 Bashpython3 voice_converter.py
 起動後、1〜8から希望の声を番号で選択してください。
 話しかけると、選択した声でリアルタイムに再生されます。
 終了は Ctrl+C。
 トラブルシューティング
 
-マイクが認識されない
+##　マイクが認識されない
 → arecord -l でマイクを確認。alsamixer で入力音量を調整。
 音が出ない
 → スピーカーが正しく選択されているか確認（PulseAudioの場合、pavucontrolで確認）。
@@ -55,11 +56,11 @@ Voskモデルエラー
 Azure認証エラー
 → 環境変数が正しく設定されているか、echo $AZURE_SPEECH_KEY で確認。
 
-注意事項
+##　注意事項
 
 Azure Speechは従量課金制です。不要時はリソースを停止してください。
 Vosk smallモデルは軽量ですが、精度はlargeモデルより劣ります（必要に応じて置き換え可能）。
 
-ライセンス
+##　ライセンス
 MIT License（自由に改変・再配布可能です）
 楽しんでご利用ください！
