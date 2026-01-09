@@ -18,8 +18,8 @@ Ubuntu環境で動作するリアルタイム音声変換ツールです。
 - Python 3.8 以上
 - マイクとスピーカー（ヘッドセット推奨）
 
+## 3. インストール手順
 ### 3.1 システム依存パッケージのインストール
-```bash
 sudo apt update
 sudo apt install portaudio19-dev python3-pyaudio
 
