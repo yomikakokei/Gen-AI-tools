@@ -25,6 +25,7 @@ Ubuntu環境で動作するリアルタイム音声変換ツールです。
 sudo apt update
 sudo apt install portaudio19-dev python3-pyaudio
 
+### 3.2 システム依存パッケージのインストール
 3.2 Pythonパッケージのインストール
 Bashpip install pyaudio vosk azure-cognitiveservices-speech
 
