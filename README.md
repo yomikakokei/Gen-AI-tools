@@ -82,3 +82,100 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 楽しんでご利用ください！
+
+# Gen-AI-tools
+Tiny generative AI tools collection
+
+# Real-time Voice Converter (Vosk + Azure Neural TTS)
+
+A real-time voice conversion tool that runs on Ubuntu.  
+It performs offline speech recognition (using Vosk) on microphone input, then converts the recognized text into speech using Azure Cognitive Services Neural TTS with your chosen voice/accent, and plays it back instantly.  
+Designed for minimal latency from recognition to synthesis and playback.
+
+## 1. Features
+- Offline speech recognition (Vosk small English model)
+- High-quality real-time speech synthesis using Azure Neural voices
+- 8 selectable voices: male/female in American, British, Indian, and Australian English accents
+- Full real-time pipeline: Microphone input → Text recognition → Synthesis with selected voice → Playback
+
+## 2. Requirements
+- Ubuntu 20.04 / 22.04 / 24.04 (recommended)
+- Python 3.8 or higher
+- Microphone and speakers (headset highly recommended)
+
+## 3. Installation Steps
+### 3.1 Install System Dependencies
+```bash
+sudo apt update
+sudo apt install portaudio19-dev python3-pyaudio
+```
+
+## 3.2 Install Python Packages
+```bash
+pip install pyaudio vosk azure-cognitiveservices-speech
+```
+
+## 3.3 Download and Place Vosk Model
+```bash
+wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
+unzip vosk-model-small-en-us-0.15.zip
+```
+※ Place the extracted folder vosk-model-small-en-us-0.15 in the same directory as voice_converter.py.
+
+## 3.4 Create Azure Speech Resource
+Go to the Azure Portal → Create a "Cognitive Services" → "Speech" resource.
+After creation, note down the Key (Key 1 or Key 2) and Region (e.g., japaneast, eastus).
+
+## 3.5 Set Environment Variables
+```bash
+export AZURE_SPEECH_KEY="your-speech-key-here"
+export AZURE_REGION="your-region-here"  # e.g., japaneast
+```
+For permanent setup, add the lines above to ~/.bashrc or ~/.profile, then run:
+```bash
+source ~/.bashrc
+```
+## 4. How to Run
+Bashpython3 voice_converter.py
+After starting, select your preferred voice by entering a number from 1 to 8.
+Speak into the microphone → the selected voice will speak back almost in real-time.
+Press Ctrl + C to stop.
+
+## 5. Troubleshooting
+
+Microphone not detected
+Run arecord -l to check devices. Adjust input volume and capture device using alsamixer or pavucontrol.
+No sound output
+Confirm the correct speaker is selected (use pavucontrol). Switch output device if using a headset.
+Vosk model not found error
+Make sure the vosk-model-small-en-us-0.15 folder is in the same directory as the script.
+Azure authentication error
+Verify environment variables with echo $AZURE_SPEECH_KEY.
+High latency
+Network conditions or distance to the Azure region can affect performance. For users in Japan, choosing japaneast usually improves latency.
+
+## 6. Important Notes
+
+Azure Speech service is pay-as-you-go. Stop or delete the resource after testing to avoid unexpected charges.
+The Vosk small model is lightweight but has lower accuracy than larger models. You can switch to a large model if needed.
+This tool is designed exclusively for English speech recognition and synthesis (model-dependent).
+
+## 7. License
+MIT License
+Copyright (c) 2026 Yos Yama
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+Enjoy using it!
