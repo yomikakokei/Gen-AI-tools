@@ -136,7 +136,9 @@ For permanent setup, add the lines above to ~/.bashrc or ~/.profile, then run:
 source ~/.bashrc
 ```
 ## 4. How to Run
-Bashpython3 voice_converter.py
+```bash
+python3 voice_converter.py
+```
 After starting, select your preferred voice by entering a number from 1 to 8.
 Speak into the microphone → the selected voice will speak back almost in real-time.
 Press Ctrl + C to stop.
